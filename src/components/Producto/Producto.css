@@ -1,0 +1,27 @@
+.Producto {
+    background: rgb(239, 183, 181);
+}
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #8064A2 !important;
+}
+
+.card {
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 5px 10px 8px #888888;
+}
+
+.list-group-item.active {
+    z-index: 2;
+    color: #fff;
+    background-color: #8064A2 !important;
+    border-color: #0d6efd;
+    box-shadow:none;
+}
+
+.list-group-item {
+    
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 5px 10px 8px #888888;
+}

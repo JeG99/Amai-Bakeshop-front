@@ -1,0 +1,11 @@
+.Catalogo {
+    background: rgb(239, 183, 181);
+}
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #8064A2 !important;
+}
+
+.card{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}

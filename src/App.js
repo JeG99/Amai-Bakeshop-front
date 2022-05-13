@@ -14,6 +14,9 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
 import Profile from './components/Profile/Profile';
+import Catalogo from "./components/Catalogo/Catalogo";
+import Producto from "./components/Producto/Producto";
+
 import { NavLink } from "react-bootstrap";
 import { Component } from "react";
 
@@ -55,6 +58,12 @@ class App extends Component {
                 <NavLink href="/profile">
                   Profile
                 </NavLink>
+                <NavLink href="/catalogo">
+                  Catalogo
+                </NavLink>
+                <NavLink href="/producto">
+                  Producto
+                </NavLink>
               </Nav>
             </Container>
           </Navbar>
@@ -68,6 +77,12 @@ class App extends Component {
             </Route>
             <Route path="/profile">
               <Profile />
+            </Route>
+            <Route path="/catalogo">
+              <Catalogo />
+            </Route>
+            <Route path="/producto">
+              <Producto />
             </Route>
           </Switch>
           <p>{this.state.data}</p>
