@@ -16,6 +16,7 @@ import Signup from './components/Signup/Signup';
 import Profile from './components/Profile/Profile';
 import { NavLink } from "react-bootstrap";
 import { Component } from "react";
+import Carrito from "./components/Carrito/Carrito";
 
 class App extends Component {
   state = {
@@ -55,6 +56,9 @@ class App extends Component {
                 <NavLink href="/profile">
                   Profile
                 </NavLink>
+                <NavLink href="/cart">
+                  Carrito
+                </NavLink>
               </Nav>
             </Container>
           </Navbar>
@@ -68,6 +72,9 @@ class App extends Component {
             </Route>
             <Route path="/profile">
               <Profile />
+            </Route>
+            <Route path="/cart">
+              <Carrito />
             </Route>
           </Switch>
           <p>{this.state.data}</p>
