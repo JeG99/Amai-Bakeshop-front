@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, ListGroupItem } from "react-bootstrap";
+import { Card, Container, ListGroupItem, Row, Col } from "react-bootstrap";
 import { ListGroup } from "react-bootstrap";
 import Navbar from "../components/Navbar";
 class Profile extends React.Component {
@@ -17,26 +17,36 @@ class Profile extends React.Component {
     return (
       <div>
         <Navbar />
-        <Card style={{ width: "15rem" }}>
-          <Card.Img
-            style={{ width: "15rem" }}
-            variant="top"
-            src={this.state.profilepic}
-            alt="userpic"
-          />
-          <Card.Body>
-            <Card.Title>{this.state.username}</Card.Title>
-            <Card.Title>{this.state.profilename}</Card.Title>
-          </Card.Body>
-        </Card>
-
-        {/* Espacio para el historial */}
-        <div style={{ marginTop: "30px" }}>
-          <ListGroup>
-            <ListGroupItem>Compra #1</ListGroupItem>
-            <ListGroupItem>Compra #2</ListGroupItem>
-          </ListGroup>
-        </div>
+        <Container fluid="md">
+          <Row className="d-flexbox justify-content-md-center" style={{ marginTop: "30px" }}>
+            <Col xs={12} sm={4} md={4}>
+              <Card style={{ width: "15rem" }}>
+                <Card.Img
+                  style={{ width: "15rem" }}
+                  variant="top"
+                  src={this.state.profilepic}
+                  alt="userpic"
+                />
+                <Card.Body>
+                  <Card.Title>{this.state.username}</Card.Title>
+                  <Card.Title>{this.state.profilename}</Card.Title>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+          <Row className="d-flexbox justify-content-md-center">
+            <Col className="w-75">
+              {/* Espacio para el historial de compra*/}
+              <div style={{ marginTop: "30px" }}>
+                <ListGroup>
+                  <ListGroupItem><h4>Historial de ordenes</h4></ListGroupItem>
+                  <ListGroupItem>Compra #1</ListGroupItem>
+                  <ListGroupItem>Compra #2</ListGroupItem>
+                </ListGroup>
+              </div>
+            </Col>
+          </Row>
+        </Container>
       </div>
     );
   }
