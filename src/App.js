@@ -11,6 +11,7 @@ import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
 import Profile from "./Pages/Profile";
 import Home from "./Pages/Home";
+import Carrito from "./Pages/Carrito";
 import { Component } from "react";
 
 class App extends Component {
@@ -53,6 +54,9 @@ class App extends Component {
             </Route>
             <Route path="/profile">
               <Profile />
+            </Route>
+            <Route path="/shoppingcart">
+              <Carrito />
             </Route>
           </Switch>
           <p>{this.state.data}</p>

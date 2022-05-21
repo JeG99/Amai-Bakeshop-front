@@ -51,7 +51,7 @@ class App extends Component {
               </li>
             </ul>
             <span>
-              <i class="bi bi-cart-fill"></i>
+              <a href="/shoppingcart"><i class="bi bi-cart-fill"></i></a>
             </span>
           </div>
         </div>

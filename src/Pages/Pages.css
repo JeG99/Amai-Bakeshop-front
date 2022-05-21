@@ -24,6 +24,22 @@
     background-color: #d3eae2;
     border-color: #d3eae2;
 }
+.pay{
+    background-color: #7bad9d;
+    border-color: #7bad9d;
+}
+.pay:hover, .pay:focus, .pay:active, .pay.active, .open .dropdown-toggle.pay {
+    background-color: #d3eae2;
+    border-color: #d3eae2;
+}
+.deleteOrder{
+    background-color: #e096c8;
+    border-color: #e096c8;
+}
+.deleteOrder:hover, .deleteOrder:focus, .deleteOrder:active, .deleteOrder.active, .open .dropdown-toggle.deleteOrder {
+    background-color: #f8d4ed;
+    border-color: #f8d4ed;
+}
 .link{
     color: #7bad9d;
 }
