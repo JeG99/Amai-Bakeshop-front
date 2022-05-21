@@ -1,0 +1,41 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.nav-item a{
+    text-decoration: none;
+    color: #7bad9d;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-right: 15px;
+    transition: all 0.4s;
+}
+.nav-item a:hover{
+    color: #d3eae2;
+}
+.navbar-brand{
+    margin: 0;
+    height: 50px;
+    width: 100px;
+    padding: 0;
+}
+.bi-cart-fill{
+    font-size: 30px;
+    color: #7bad9d;
+    cursor: pointer;
+    padding-top: 5px;
+    transition: all 0.4s;
+}
+.bi-cart-fill:hover{
+    color: #d3eae2;
+}
+.navbar-toggler{
+    font-size: 23px;
+    color: #7bad9d;
+    box-shadow: none;
+}
+.navbar-toggler:focus{
+    outline: none;
+    box-shadow: none;
+}

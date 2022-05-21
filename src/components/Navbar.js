@@ -1,24 +1,61 @@
 import React from "react";
-import { Container, Nav, Navbar } from "react-bootstrap";
+import { Nav } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { NavLink } from "react-bootstrap";
 import { Component } from "react";
+import "./Navbar.css";
+import foto from "./navbar.jpg";
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <Navbar bg="dark" variant="dark">
-          <Container>
-            <Navbar.Brand href="/home">Amai Bakeshop</Navbar.Brand>
-            <Nav className="me-auto">
-              <NavLink href="/login">Login</NavLink>
-              <NavLink href="/signup">Signup</NavLink>
-              <NavLink href="/profile">Profile</NavLink>
-            </Nav>
-          </Container>
-        </Navbar>
-      </div>
+      <Nav class="navbar navbar-expand-lg pb-3">
+        <div className="container">
+          <a class="navbar-brand" href="/home">
+            <img src={foto} class="img-fluid" />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon">
+              <i class="bi bi-list"></i>
+            </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav m-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="/home">
+                  Home <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/login">
+                  Login
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/signup">
+                  Signup
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/profile">
+                  Profile
+                </a>
+              </li>
+            </ul>
+            <span>
+              <i class="bi bi-cart-fill"></i>
+            </span>
+          </div>
+        </div>
+      </Nav>
     );
   }
 }
