@@ -82,17 +82,23 @@ class Login extends React.Component {
                     type="submit"
                     onClick={this.login}
                     href="/home"
+                    className="login"
                   >
                     Iniciar sesión
                   </Button>
                 </div>
                 <div className="my-3">
                   <span>
-                    ¿No tienes cuenta? <a href="/signup">Regístrate</a>
+                    ¿No tienes cuenta?{" "}
+                    <a href="/signup" className="link">
+                      Regístrate
+                    </a>
                   </span>
                   <br></br>
                   <span>
-                    <a href="#">Recuperar contraseña</a>
+                    <a href="#" className="link">
+                      Recuperar contraseña
+                    </a>
                   </span>
                 </div>
                 <p>{this.state.email}</p>

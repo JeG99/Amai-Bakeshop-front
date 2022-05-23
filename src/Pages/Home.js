@@ -4,7 +4,13 @@ function Home() {
   return (
     <div>
       <Navbar />
-      Este es el Home
+      <div className="home">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-6"></div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

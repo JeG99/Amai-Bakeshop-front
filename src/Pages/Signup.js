@@ -4,8 +4,8 @@ import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 
 class Signup extends React.Component {
-  constructor(props){
-    super(props)
+  constructor(props) {
+    super(props);
     this.state = {
       user_name: "",
       email: "",
@@ -14,37 +14,41 @@ class Signup extends React.Component {
     };
   }
 
-  validateForm(){
-    return(
+  validateForm() {
+    return (
       this.state.user_name.lenght > 0 &&
       this.state.email.lenght > 0 &&
       this.state.pass === this.state.confirm_pass
-    )
+    );
   }
 
   render() {
     return (
       <>
-        <Container className="w-50 mt-5 rounded shadow" style={{padding:"20px 15px 20px 15px"}}>
+        <Container
+          className="w-50 mt-5 rounded shadow"
+          style={{ padding: "20px 15px 20px 15px" }}
+        >
           <Row>
             <Col>
               <h2 className="fw-bold text-center py-3">Registro</h2>
               <Form>
                 <Form.Group className="mb-3" controlId="name">
                   <Form.Label>Nombre de Usuario</Form.Label>
-                  <Form.Control 
-                    type="email" 
+                  <Form.Control
+                    type="email"
                     placeholder="Nombre"
                     value={this.state.user_name}
-                    onChange={(e) => this.setState({ user_name: e.target.value })}
+                    onChange={(e) =>
+                      this.setState({ user_name: e.target.value })
+                    }
                   />
                 </Form.Group>
-                <br></br>
                 <Form.Group className="mb-3" controlId="email">
                   <Form.Label>Correo Electronico </Form.Label>
-                  <Form.Control 
-                    type="email" 
-                    placeholder="Email" 
+                  <Form.Control
+                    type="email"
+                    placeholder="Email"
                     value={this.state.email}
                     onChange={(e) => this.setState({ email: e.target.value })}
                   />
@@ -52,26 +56,33 @@ class Signup extends React.Component {
                     <p>We'll never share your email with anyone else.</p>
                   </Form.Text>
                 </Form.Group>
-                <br></br>
+
                 <Form.Group className="mb-3" controlId="password">
                   <Form.Label>Contraseña</Form.Label>
-                  <Form.Control 
-                    type="password" 
-                    placeholder="Contraseña" 
+                  <Form.Control
+                    type="password"
+                    placeholder="Contraseña"
                     value={this.state.pass}
                     onChange={(e) => this.setState({ pass: e.target.value })}
                   />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="confirmPassword">
                   <Form.Label>Confirmar Contraseña</Form.Label>
-                  <Form.Control 
-                    type="password" 
-                    placeholder="Confirmar Contraseña" 
+                  <Form.Control
+                    type="password"
+                    placeholder="Confirmar Contraseña"
                     value={this.state.confirm_pass}
-                    onChange={(e) => this.setState({ confirm_pass: e.target.value })}
+                    onChange={(e) =>
+                      this.setState({ confirm_pass: e.target.value })
+                    }
                   />
                 </Form.Group>
-                <Button variant="primary" type="submit" href="/login">
+                <Button
+                  variant="primary"
+                  type="submit"
+                  href="/login"
+                  className="signup"
+                >
                   Registrarse
                 </Button>
                 <p>{this.state.user_name}</p>
