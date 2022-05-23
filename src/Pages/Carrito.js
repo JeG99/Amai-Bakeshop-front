@@ -3,6 +3,7 @@ import { ListGroup } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { Container, Row, Col } from "react-bootstrap";
 import Navbar from "../components/Navbar";
+import ItemCarrito from "../components/ItemCarrito";
 
 class Carrito extends React.Component{
     constructor(props){
@@ -13,13 +14,15 @@ class Carrito extends React.Component{
     }
 
     displayList(){
+        //Generar un elemento ItemCarrito por cada producto en la lista de productos
     }
 
-    deleteOrder(i){
-        this.state.lista_carrito.splice(i,1)
+    deleteFromCart(){
+        //Al hacer clic en el boton de eliminar, debe de quitar el elemento de la lista del carrito
     }
 
     payOrder(){
+        //Pasa la cantidad total a pagar para que se realice el proceso de pago
     }
 
     render(){
@@ -37,25 +40,7 @@ class Carrito extends React.Component{
                                     <h3>Lista del Carrito</h3>
                                 </ListGroup.Item>
                                 {/* Abajo se generara la lista de productos del carrito */}
-                                <ListGroup.Item as="li">
-                                    <Container>
-                                        <Row>
-                                            <Col><h5>Nombre de Producto</h5></Col>
-                                            <Col>
-                                                <div className="d-flex flex-row-reverse">
-                                                    <Button className="deleteOrder">Eliminar</Button>
-                                                </div>
-                                            </Col>
-                                        </Row>
-                                        <Row className="mt-3">
-                                            <Col>
-                                                <p>Cantidad: X</p>
-                                                <p>Costo: X</p>
-                                            </Col>
-                                            
-                                        </Row>
-                                    </Container>
-                                </ListGroup.Item>
+                                <ItemCarrito />
                                 {/* Espacio donde se calcula la cantidad total de la orden */}
                                 <ListGroup.Item as="li">
                                     <div className="d-flexbox justify-content-center">
@@ -69,7 +54,10 @@ class Carrito extends React.Component{
                         <Col></Col>
                         <Col className="mt-3">
                             <div className="d-grid gap-2">
-                                <Button className="pay" size="lg">
+                                <Button 
+                                    className="pay" 
+                                    size="lg"
+                                    href="/home">
                                     Pagar
                                 </Button>
                             </div>

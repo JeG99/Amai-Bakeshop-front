@@ -12,6 +12,8 @@ import Signup from "./Pages/Signup";
 import Profile from "./Pages/Profile";
 import Home from "./Pages/Home";
 import Carrito from "./Pages/Carrito";
+import Catalogo from "./Pages/Catalogo";
+import Producto from "./Pages/Producto";
 import { Component } from "react";
 
 class App extends Component {
@@ -58,6 +60,12 @@ class App extends Component {
             <Route path="/shoppingcart">
               <Carrito />
             </Route>
+            <Route path="/catalog">
+              <Catalogo />
+            </Route>
+            <Router path="/product">
+              <Producto />
+            </Router>
           </Switch>
           <p>{this.state.data}</p>
         </div>

@@ -36,17 +36,17 @@ class App extends Component {
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/login">
-                  Login
+                  Logout
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/signup">
-                  Signup
+                <a class="nav-link" href="/catalog">
+                  Catalogo
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/profile">
-                  Profile
+                  Perfil
                 </a>
               </li>
             </ul>

@@ -18,7 +18,7 @@ class Profile extends React.Component {
       <div>
         <Navbar />
         <Container fluid="md">
-          <Row className="d-flexbox justify-content-md-center" style={{ marginTop: "30px" }}>
+          <Row className="mt-3 d-flexbox justify-content-md-center">
             <Col xs={12} sm={4} md={4}>
               <Card style={{ width: "15rem" }}>
                 <Card.Img
@@ -37,9 +37,9 @@ class Profile extends React.Component {
           <Row className="d-flexbox justify-content-md-center">
             <Col className="w-75">
               {/* Espacio para el historial de compra*/}
-              <div style={{ marginTop: "30px" }}>
+              <div className="mt-3">
                 <ListGroup>
-                  <ListGroupItem><h4>Historial de ordenes</h4></ListGroupItem>
+                  <ListGroupItem className="header"><h4>Historial de ordenes</h4></ListGroupItem>
                   <ListGroupItem>Compra #1</ListGroupItem>
                   <ListGroupItem>Compra #2</ListGroupItem>
                 </ListGroup>
