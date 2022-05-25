@@ -19,6 +19,8 @@ import Producto from "./components/Producto/Producto";
 
 import { NavLink } from "react-bootstrap";
 import { Component } from "react";
+import Catalogo_admin from "./components/Catalogo_admin/Catalogo_admin";
+import Producto_admin from "./components/Producto_admin/Producto_admin";
 
 class App extends Component {
   state = {
@@ -64,6 +66,12 @@ class App extends Component {
                 <NavLink href="/producto">
                   Producto
                 </NavLink>
+                <NavLink href="/catalogo_admin">
+                  Catalogo_admin
+                </NavLink>
+                <NavLink href="/producto_admin">
+                  Producto_admin
+                </NavLink>
               </Nav>
             </Container>
           </Navbar>
@@ -83,6 +91,12 @@ class App extends Component {
             </Route>
             <Route path="/producto">
               <Producto />
+            </Route>
+            <Route path="/catalogo_admin">
+              <Catalogo_admin />
+            </Route>
+            <Route path="/producto_admin">
+              <Producto_admin />
             </Route>
           </Switch>
           <p>{this.state.data}</p>
