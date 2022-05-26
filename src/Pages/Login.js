@@ -99,11 +99,6 @@ class Login extends React.Component {
                     </a>
                   </span>
                   <br></br>
-                  <span>
-                    <a href="#" className="link">
-                      Recuperar contraseña
-                    </a>
-                  </span>
                 </div>
               </Form>
             </Col>
