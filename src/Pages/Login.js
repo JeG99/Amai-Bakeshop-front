@@ -104,9 +104,6 @@ class Login extends React.Component {
                     </a>
                   </span>
                 </div>
-                <p>{this.state.email}</p>
-                <p>{this.state.pass}</p>
-                <p>{this.state.auth}</p>
               </Form>
             </Col>
           </Row>

@@ -111,10 +111,6 @@ class Signup extends React.Component {
                 >
                   Registrarse
                 </Button>
-                <p>{this.state.user_name}</p>
-                <p>{this.state.email}</p>
-                <p>{this.state.pass}</p>
-                <p>{this.state.confirm_pass}</p>
               </Form>
             </Col>
           </Row>
