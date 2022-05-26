@@ -35,7 +35,7 @@ class Producto_admin extends React.Component {
         };
         console.log(body);
         console.log(this.state.image);
-        axios.post('http://localhost:8080/create_product', body, config)
+        axios.post('http://54.162.93.237:8080/create_product', body, config)
         .then((res) => {
             if (res) {
                 console.log(res);

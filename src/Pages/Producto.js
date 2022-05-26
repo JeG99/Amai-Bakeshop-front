@@ -29,7 +29,7 @@ class Producto extends React.Component {
             price: this.state.price,
             state: 'pending'
         };
-        axios.post('http://localhost:8080/create_order', body, config)
+        axios.post('http://54.162.93.237:8080/create_order', body, config)
         .then((res) => {
             if (res.data) {
                 console.log(res.data);

@@ -27,7 +27,7 @@ class Login extends React.Component {
       email: this.state.email,
       pass: this.state.pass
     };
-    axios.post('http://localhost:8080/login', body, config)
+    axios.post('http://54.162.93.237:8080/login', body, config)
     .then((res) => {
       if (res.data.auth) {
         this.props.history.push('/home');

@@ -15,7 +15,7 @@ class Catalogo_admin extends React.Component {
 
     componentDidMount = () => {
         //event.preventDefault();
-        axios.get('http://localhost:8080/product_list')
+        axios.get('http://54.162.93.237:8080/product_list')
         .then((res) => {
             if (res.data.products) {
                 this.setState({products: res.data.products})

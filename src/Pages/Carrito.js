@@ -26,7 +26,7 @@ class Carrito extends React.Component{
             state: 'pending'
         };
         console.log(body)
-        axios.post('http://localhost:8080/user_orders', body, config)
+        axios.post('http://54.162.93.237:8080/user_orders', body, config)
         .then((res) => {
             if (res.data.orders) {
                 this.setState({lista_carrito: res.data.orders})
