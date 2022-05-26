@@ -4,6 +4,7 @@ import pastel1 from '../assets/pastel1.jfif';
 import Navbar from "../components/Navbar";
 import {withRouter} from 'react-router-dom';
 import axios from 'axios';
+import url from '../URL';
 
 class Producto extends React.Component {
     constructor(props) {
@@ -29,7 +30,7 @@ class Producto extends React.Component {
             price: this.state.price,
             state: 'pending'
         };
-        axios.post('http://54.162.93.237:8080/create_order', body, config)
+        axios.post(url + '/create_order', body, config)
         .then((res) => {
             if (res.data) {
                 console.log(res.data);

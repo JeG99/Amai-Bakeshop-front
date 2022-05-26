@@ -5,6 +5,7 @@ import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import "./Pages.css";
 import axios from "axios";
+import url from '../URL';
 
 class Login extends React.Component {
   constructor(props) {
@@ -27,7 +28,7 @@ class Login extends React.Component {
       email: this.state.email,
       pass: this.state.pass
     };
-    axios.post('http://54.162.93.237:8080/login', body, config)
+    axios.post(url + '/login', body, config)
     .then((res) => {
       if (res.data.auth) {
         this.props.history.push('/home');
@@ -104,9 +105,6 @@ class Login extends React.Component {
                     </a>
                   </span>
                 </div>
-                <p>{this.state.email}</p>
-                <p>{this.state.pass}</p>
-                <p>{this.state.auth}</p>
               </Form>
             </Col>
           </Row>

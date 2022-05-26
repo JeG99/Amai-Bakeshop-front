@@ -1,10 +1,13 @@
 import React from "react";
 import { ListGroup } from "react-bootstrap";
 import { Button } from "react-bootstrap";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Image } from "react-bootstrap";
 import Navbar from "../components/Navbar";
 import ItemCarrito from "../components/ItemCarrito";
 import axios from 'axios';
+import url from '../URL';
+import qr from '../assets/qr.png';
+import {withRouter} from 'react-router-dom';
 
 class Carrito extends React.Component{
     constructor(props){
@@ -25,12 +28,10 @@ class Carrito extends React.Component{
             uid: JSON.parse(localStorage.getItem('user'))._id,
             state: 'pending'
         };
-        console.log(body)
-        axios.post('http://54.162.93.237:8080/user_orders', body, config)
+        axios.post(url + '/user_orders', body, config)
         .then((res) => {
             if (res.data.orders) {
                 this.setState({lista_carrito: res.data.orders})
-                console.log(this.state.lista_carrito)
                 this.state.lista_carrito.map((e) => {this.state.total += e.price})
             }
         })
@@ -39,16 +40,26 @@ class Carrito extends React.Component{
         });
     }
 
-    displayList(){
-        //Generar un elemento ItemCarrito por cada producto en la lista de productos
-    }
-
-    deleteFromCart(){
-        //Al hacer clic en el boton de eliminar, debe de quitar el elemento de la lista del carrito
-    }
-
-    payOrder(){
-        //Pasa la cantidad total a pagar para que se realice el proceso de pago
+    payOrders = () => {
+        let config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+            };
+            let body = {
+                uid: JSON.parse(localStorage.getItem('user'))._id,
+            };
+            axios.post(url + '/close_orders', body, config)
+            .then((res) => {
+                if (res.data) {
+                    console.log(res.data.orders);
+                    this.props.history.push('/catalog');
+                    window.location.reload(false);
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     }
 
     render(){
@@ -78,12 +89,13 @@ class Carrito extends React.Component{
                     </Row>
                     <Row>
                         <Col></Col>
+                        <Image width="200" src={qr}/>
                         <Col className="mt-3">
                             <div className="d-grid gap-2">
                                 <Button 
                                     className="pay" 
                                     size="lg"
-                                    href="/home">
+                                    onClick={this.payOrders}>
                                     Pagar
                                 </Button>
                             </div>
@@ -96,4 +108,4 @@ class Carrito extends React.Component{
     }
 }
 
-export default Carrito;
+export default withRouter(Carrito);

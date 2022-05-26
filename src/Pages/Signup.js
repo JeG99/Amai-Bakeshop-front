@@ -4,6 +4,7 @@ import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { withRouter } from 'react-router-dom';
 import axios from "axios";
+import url from '../URL';
 
 class Signup extends React.Component {
   constructor(props) {
@@ -36,7 +37,7 @@ class Signup extends React.Component {
       name: this.state.user_name,
       pass: this.state.pass
     };
-    axios.post('http://54.162.93.237:8080/signup', body, config)
+    axios.post(url + '/signup', body, config)
     .then((res) => {
       if (res.data.acc) {
         this.props.history.push('/login');
@@ -111,10 +112,6 @@ class Signup extends React.Component {
                 >
                   Registrarse
                 </Button>
-                <p>{this.state.user_name}</p>
-                <p>{this.state.email}</p>
-                <p>{this.state.pass}</p>
-                <p>{this.state.confirm_pass}</p>
               </Form>
             </Col>
           </Row>

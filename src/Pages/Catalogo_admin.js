@@ -4,6 +4,7 @@ import './Catalogo_admin.css'
 import pastel from '../assets/cake.jpg';
 import Item_admin from "../components/Item_admin"
 import axios from "axios";
+import url from '../URL';
 
 class Catalogo_admin extends React.Component {
     constructor(props) {
@@ -15,7 +16,7 @@ class Catalogo_admin extends React.Component {
 
     componentDidMount = () => {
         //event.preventDefault();
-        axios.get('http://54.162.93.237:8080/product_list')
+        axios.get(url + '/product_list')
         .then((res) => {
             if (res.data.products) {
                 this.setState({products: res.data.products})

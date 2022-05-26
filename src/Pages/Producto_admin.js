@@ -4,6 +4,7 @@ import './Producto_admin.css'
 import pastel1 from '../assets/pastel1.jfif';
 import axios from "axios";
 import { withRouter } from 'react-router-dom';
+import url from '../URL';
 
 class Producto_admin extends React.Component {
     constructor(props) {
@@ -35,7 +36,7 @@ class Producto_admin extends React.Component {
         };
         console.log(body);
         console.log(this.state.image);
-        axios.post('http://54.162.93.237:8080/create_product', body, config)
+        axios.post(url + '/create_product', body, config)
         .then((res) => {
             if (res) {
                 console.log(res);
