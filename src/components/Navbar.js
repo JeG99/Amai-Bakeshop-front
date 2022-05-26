@@ -4,8 +4,20 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Component } from "react";
 import "./Navbar.css";
 import foto from "./navbar.jpg";
+import { withRouter } from 'react-router-dom';
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+  }
+
+  logout = () => {
+    localStorage.clear();
+    this.props.history.push('/login');
+    window.location.reload(false);
+  }
+
   render() {
     return (
       <Nav class="navbar navbar-expand-lg pb-3">
@@ -35,7 +47,7 @@ class App extends Component {
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/login">
+                <a onClick={this.logout} class="nav-link" href="">
                   Logout
                 </a>
               </li>
@@ -60,4 +72,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);

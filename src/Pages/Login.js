@@ -1,8 +1,10 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import { withRouter } from 'react-router-dom';
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import "./Pages.css";
+import axios from "axios";
 
 class Login extends React.Component {
   constructor(props) {
@@ -10,31 +12,33 @@ class Login extends React.Component {
     this.state = {
       email: "",
       pass: "",
-      auth: false,
+      auth: false
     };
   }
 
-  login() {
-    this.authenticate()
-      .then((res) => this.setState({ auth: res }))
-      .catch((err) => console.log(err));
-  }
-
-  authenticate = async () => {
-    const res = await fetch("/signup", {
-      method: "GET",
-      headers: { "Content-Type": "application/json" },
-      body: {
-        email: this.state.email,
-        pass: this.state.pass,
-      },
+  handleSubmit = (event) => {
+    event.preventDefault();
+    let config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+    let body = {
+      email: this.state.email,
+      pass: this.state.pass
+    };
+    axios.post('http://localhost:8080/login', body, config)
+    .then((res) => {
+      if (res.data.auth) {
+        this.props.history.push('/home');
+        window.location.reload(false);
+      }
+      localStorage.setItem('user', JSON.stringify(res.data.auth));
+    })
+    .catch((err) => {
+      console.log(err);
     });
-    const body = await res.json();
-    if (res.status !== 200) {
-      throw Error(body.message);
-    }
-    return body;
-  };
+  }
 
   render() {
     return (
@@ -44,7 +48,7 @@ class Login extends React.Component {
             <Col className="login-foto d-none d-lg-block"></Col>
             <Col>
               <h2 className="fw-bold text-center py-5">Bienvenido</h2>
-              <Form>
+              <Form onSubmit={this.handleSubmit}>
                 <Form.Group className="mb-4" controlId="formBasicEmail">
                   <Form.Label>Correo Electrónico </Form.Label>
                   <Form.Control
@@ -80,8 +84,7 @@ class Login extends React.Component {
                   <Button
                     variant="primary"
                     type="submit"
-                    onClick={this.login}
-                    href="/home"
+                    //href="/home"
                     className="login"
                   >
                     Iniciar sesión
@@ -113,4 +116,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+export default withRouter(Login);

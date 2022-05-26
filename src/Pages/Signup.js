@@ -2,6 +2,8 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
+import { withRouter } from 'react-router-dom';
+import axios from "axios";
 
 class Signup extends React.Component {
   constructor(props) {
@@ -22,6 +24,30 @@ class Signup extends React.Component {
     );
   }
 
+  handleSubmit = (event) => {
+    event.preventDefault();
+    let config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+    let body = {
+      email: this.state.email,
+      name: this.state.user_name,
+      pass: this.state.pass
+    };
+    axios.post('http://localhost:8080/signup', body, config)
+    .then((res) => {
+      if (res.data.acc) {
+        this.props.history.push('/login');
+        window.location.reload(false);
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  }
+
   render() {
     return (
       <>
@@ -32,11 +58,11 @@ class Signup extends React.Component {
           <Row>
             <Col>
               <h2 className="fw-bold text-center py-3">Registro</h2>
-              <Form>
+              <Form onSubmit={this.handleSubmit}>
                 <Form.Group className="mb-3" controlId="name">
                   <Form.Label>Nombre de Usuario</Form.Label>
                   <Form.Control
-                    type="email"
+                    type="text"
                     placeholder="Nombre"
                     value={this.state.user_name}
                     onChange={(e) =>
@@ -80,7 +106,7 @@ class Signup extends React.Component {
                 <Button
                   variant="primary"
                   type="submit"
-                  href="/login"
+                  //href="/login"
                   className="signup"
                 >
                   Registrarse
@@ -98,4 +124,4 @@ class Signup extends React.Component {
   }
 }
 
-export default Signup;
+export default withRouter(Signup);

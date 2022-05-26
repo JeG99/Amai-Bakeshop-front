@@ -1,6 +1,8 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-function Home() {
+const Home = (props) => {
+  const textFromStorage = JSON.parse(localStorage.getItem('user'));
+  console.log(textFromStorage);
   return (
     <div>
       <Navbar />
