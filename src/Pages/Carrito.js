@@ -4,13 +4,39 @@ import { Button } from "react-bootstrap";
 import { Container, Row, Col } from "react-bootstrap";
 import Navbar from "../components/Navbar";
 import ItemCarrito from "../components/ItemCarrito";
+import axios from 'axios';
 
 class Carrito extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            lista_carrito: []
+            lista_carrito: [],
+            total: 0
         };
+    }
+
+    componentDidMount = () => {
+        let config = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+        };
+        let body = {
+            uid: JSON.parse(localStorage.getItem('user'))._id,
+            state: 'pending'
+        };
+        console.log(body)
+        axios.post('http://localhost:8080/user_orders', body, config)
+        .then((res) => {
+            if (res.data.orders) {
+                this.setState({lista_carrito: res.data.orders})
+                console.log(this.state.lista_carrito)
+                this.state.lista_carrito.map((e) => {this.state.total += e.price})
+            }
+        })
+        .catch((err) => {
+            console.log(err);
+        });
     }
 
     displayList(){
@@ -40,11 +66,11 @@ class Carrito extends React.Component{
                                     <h3>Lista del Carrito</h3>
                                 </ListGroup.Item>
                                 {/* Abajo se generara la lista de productos del carrito */}
-                                <ItemCarrito />
+                                {this.state.lista_carrito.map((e) => <ItemCarrito key={e._id} nombre_prod={e.product_name} costo={e.price} />)}
                                 {/* Espacio donde se calcula la cantidad total de la orden */}
                                 <ListGroup.Item as="li">
                                     <div className="d-flexbox justify-content-center">
-                                        <p>Total: X</p>
+                                        <p>Total: ${this.state.total}</p>
                                     </div>
                                 </ListGroup.Item>
                             </ListGroup>

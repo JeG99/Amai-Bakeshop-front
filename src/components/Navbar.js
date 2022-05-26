@@ -47,11 +47,6 @@ class App extends Component {
                 </a>
               </li>
               <li class="nav-item">
-                <a onClick={this.logout} class="nav-link" href="">
-                  Logout
-                </a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link" href="/catalog">
                   Catalogo
                 </a>
@@ -59,6 +54,11 @@ class App extends Component {
               <li class="nav-item">
                 <a class="nav-link" href="/profile">
                   Perfil
+                </a>
+              </li>
+              <li class="nav-item">
+                <a onClick={this.logout} class="nav-link" href="">
+                  Logout
                 </a>
               </li>
             </ul>

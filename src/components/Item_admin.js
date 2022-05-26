@@ -2,7 +2,7 @@ import React from 'react';
 import {Button, Card} from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
 
-class Item extends React.Component {
+class Item_admin extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -11,14 +11,6 @@ class Item extends React.Component {
             image: props.image,
             description: props.description
         }
-    }
-
-    redirectToProductPage = () => {
-        this.props.history.push({
-            pathname: '/product',
-            state: this.state
-        });
-        window.location.reload(false);
     }
 
     render() {
@@ -31,11 +23,8 @@ class Item extends React.Component {
                         <Card.Text>
                         Precio: ${this.state.price}
                         </Card.Text>
-                        <Button 
-                            className='pay'
-                            onClick={this.redirectToProductPage}
-                            //href="/product"
-                        >Detalles</Button>
+                        <Button variant="outline-primary">Editar</Button>{' '}
+                        <Button variant="danger">Eliminar</Button>
                     </Card.Body>
                 </Card>
             </div>
@@ -43,4 +32,4 @@ class Item extends React.Component {
     }
 }
 
-export default withRouter(Item);
+export default withRouter(Item_admin);
