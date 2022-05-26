@@ -6,11 +6,18 @@ class Profile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "Nombre Usuario",
-      profilename: "Nombre Perfil",
+      username: "",
+      profilename: "",
       profilepic:
         "https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png",
     };
+  }
+
+  componentDidMount() {
+    this.setState({
+      username: JSON.parse(localStorage.getItem('user')).name,
+      profilename: JSON.parse(localStorage.getItem('user')).email
+    });
   }
 
   render() {

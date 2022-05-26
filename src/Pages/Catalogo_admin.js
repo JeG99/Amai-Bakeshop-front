@@ -1,11 +1,11 @@
 import React from 'react'
 import {Button, Card} from "react-bootstrap";
-import Navbar from "../components/Navbar"
-import Item from "../components/Item"
+import './Catalogo_admin.css'
 import pastel from '../assets/cake.jpg';
-import axios from 'axios';
+import Item_admin from "../components/Item_admin"
+import axios from "axios";
 
-class Catalogo extends React.Component {
+class Catalogo_admin extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -30,13 +30,10 @@ class Catalogo extends React.Component {
     render() {
         return (
             <div className="Formato">
-                <Navbar/>
                 <div className="container d-flex justify-content-center align-items-center h-100">
-                    <div className="row mt-3">
-                        <div className='container d-flex justify-content-center'>
-                            <h2>Catalogo de Pasteles</h2>
-                        </div>
-                        {this.state.products.map((e) => <Item key={e._id} title={e.product_name} price={e.price} image={pastel} description={e.description} />)}
+                    <div className="row">
+                        <Button href="/Producto_admin" variant="success">Añadir un producto</Button>{' '}
+                        {this.state.products.map((e) => <Item_admin key={e._id} title={e.product_name} price={e.price} image={pastel} description={e.description} />)}
                     </div>
                 </div>
             </div>
@@ -44,4 +41,4 @@ class Catalogo extends React.Component {
     }
 }
 
-export default Catalogo
+export default Catalogo_admin

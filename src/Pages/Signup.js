@@ -36,7 +36,7 @@ class Signup extends React.Component {
       name: this.state.user_name,
       pass: this.state.pass
     };
-    axios.post('http://localhost:8080/signup', body, config)
+    axios.post('http://54.162.93.237:8080/signup', body, config)
     .then((res) => {
       if (res.data.acc) {
         this.props.history.push('/login');

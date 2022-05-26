@@ -6,8 +6,8 @@ class ItemCarrito extends React.Component{
     constructor(props){
         super(props)
         this.state = {
-            nombre_prod:"Nombre producto",
-            costo:"$X"
+            nombre_prod: props.nombre_prod,
+            costo:"$" + props.costo
         }
     }
 
