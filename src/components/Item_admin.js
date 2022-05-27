@@ -1,6 +1,8 @@
 import React from 'react';
 import {Button, Card} from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
+import axios from 'axios';
+import url from '../URL';
 
 class Item_admin extends React.Component {
     constructor(props) {
@@ -10,7 +12,28 @@ class Item_admin extends React.Component {
             price: props.price,
             image: props.image,
             description: props.description
-        }
+        };
+    }
+
+    deleteProduct = event => {
+        event.preventDefault();
+        let config = {
+            headers: {
+            'Content-Type': 'application/json'
+            }
+        };
+        let body = {
+            name: this.state.title
+        };
+        axios.post(url + '/delete_product', body, config)
+        .then((res) => {
+            if (res.data.result) {
+                window.location.reload(false);
+            }
+        })
+        .catch((err) => {
+            console.log(err);
+        });
     }
 
     render() {
@@ -23,8 +46,7 @@ class Item_admin extends React.Component {
                         <Card.Text>
                         Precio: ${this.state.price}
                         </Card.Text>
-                        <Button variant="outline-primary">Editar</Button>{' '}
-                        <Button variant="danger">Eliminar</Button>
+                        <Button onClick={this.deleteProduct} variant="danger">Eliminar</Button>
                     </Card.Body>
                 </Card>
             </div>

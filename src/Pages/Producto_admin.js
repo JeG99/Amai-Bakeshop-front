@@ -56,17 +56,6 @@ class Producto_admin extends React.Component {
                     <div className="row">
                         <div className="col">
                             <Card style={{ width: '20rem' }}>
-                                <div>
-                                    <Figure>
-                                        <Figure.Image
-                                            width={1200}
-                                            height={1600}
-                                            alt="1200x1600"
-                                            src=""
-                                        />
-                                    </Figure>
-                                </div>
-                                
                                 <Card.Body>
                                     <Form>
                                         <Form.Group className="mb-3" controlId="formBasicEmail">
