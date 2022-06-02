@@ -71,16 +71,7 @@ class Login extends React.Component {
                     onChange={(e) => this.setState({ pass: e.target.value })}
                   />
                 </Form.Group>
-                <div className="mb-4 form-check">
-                  <input
-                    type="checkbox"
-                    name="connected"
-                    className="form-check-input"
-                  />
-                  <label for="connected" className="form-check-label">
-                    Mantener la sesión
-                  </label>
-                </div>
+                <br></br>
                 <div className="d-grid">
                   <Button
                     variant="primary"
